@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subscribe - The Daily Gazette</title>
+    <title>Subscribe & Media Kit - The Personal Gazette</title>
     <style>
         body { font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 0; color: #1c1917; background-color: #fcfbf9; line-height: 1.6; }
         header { background: #ffffff; border-bottom: 1px solid #e7e5e4; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
         .brand { font-size: 20px; font-weight: bold; color: #0c0a09; text-decoration: none; }
         .nav-links a { color: #57534e; text-decoration: none; font-size: 14px; font-weight: 600; }
 
-        .container { max-width: 650px; margin: 50px auto; padding: 0 20px; }
+        .container { max-width: 680px; margin: 50px auto; padding: 0 20px; }
         .card { background: #ffffff; border: 1px solid #e7e5e4; border-radius: 12px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03); }
         .section-badge { display: inline-block; background: #e2e8f0; color: #334155; font-size: 11px; font-weight: bold; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; margin-bottom: 15px; }
 
@@ -19,7 +19,7 @@
 
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; font-weight: 600; font-size: 13px; margin-bottom: 6px; color: #44403c; }
-        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #d6d3d1; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #d6d3d1; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
 
         .btn-submit { width: 100%; background: #0c0a09; color: #ffffff; border: none; padding: 14px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
         .btn-submit:hover { background: #292524; }
@@ -28,19 +28,19 @@
 <body>
 
     <header>
-        <a href="index.html" class="brand">📰 The Daily Gazette</a>
+        <a href="index.html" class="brand">📰 The Personal Gazette</a>
         <div class="nav-links">
-            <a href="index.html">← Back to Front Page</a>
+            <a href="index.html">← Back to Feed</a>
         </div>
     </header>
 
     <div class="container">
         <div class="card">
-            <span class="section-badge">[PAGE: SUBSCRIPTION FORM]</span>
-            <h1>Subscribe to The Daily Gazette</h1>
-            <p>Choose your membership tier to receive unrestricted digital articles, newsletter updates, and special editorial dispatches.</p>
+            <span class="section-badge">[SECTION J: SUBSCRIPTION & SPONSORSHIP FORM]</span>
+            <h1>Join the Community & Work Together</h1>
+            <p>Subscribe for free weekly email dispatches or inquire about post sponsorships and custom client web builds.</p>
 
-            <form onsubmit="event.preventDefault(); alert('Subscription registered successfully!');">
+            <form onsubmit="event.preventDefault(); alert('Submission received successfully!');">
                 <div class="form-group">
                     <label>Full Name</label>
                     <input type="text" placeholder="John Smith" required>
@@ -52,15 +52,21 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Select Subscription Tier</label>
+                    <label>Inquiry Type / Plan</label>
                     <select>
-                        <option>Free Reader (Weekly Newsletter Digest)</option>
-                        <option>Digital Pass (Unlimited Daily Online Access)</option>
-                        <option>VIP Supporter (Daily Pass + Digital Resource Downloads)</option>
+                        <option>Free Sunday Newsletter Reader</option>
+                        <option>Supporter Subscription ($5/mo)</option>
+                        <option>Sponsorship / Media Kit Inquiry</option>
+                        <option>Web Design Service Consultation</option>
                     </select>
                 </div>
 
-                <button type="submit" class="btn-submit">Complete Subscription Sign Up →</button>
+                <div class="form-group">
+                    <label>Message or Notes (Optional)</label>
+                    <textarea rows="3" placeholder="Tell us about your project or sponsorship proposal..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Submit Registration / Request →</button>
             </form>
         </div>
     </div>
