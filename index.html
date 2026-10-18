@@ -3,150 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Daily Gazette - Newspaper & Journal</title>
+    <title>Learn More - Event Information</title>
     <style>
-        * { box-sizing: border-box; }
-        body { font-family: Georgia, 'Times New Roman', serif; margin: 0; padding: 0; color: #1c1917; background-color: #fcfbf9; line-height: 1.6; }
+        body { font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 0; color: #0f172a; background-color: #f8fafc; line-height: 1.6; }
+        header { background: #0f172a; color: white; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; }
+        .event-brand { font-size: 20px; font-weight: 800; color: #ffffff; text-decoration: none; }
+        .nav-links a { text-decoration: none; color: #cbd5e1; font-weight: 600; font-size: 14px; margin-left: 20px; }
 
-        /* CLIENT HELPER BADGE FOR EASY CUSTOMIZATION */
-        .section-label { display: inline-block; background: #e2e8f0; color: #334155; font-family: system-ui, sans-serif; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+        .section-label { display: inline-block; background: #e2e8f0; color: #334155; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; margin-bottom: 12px; }
 
-        /* HEADER & NEWSPAPER MASTHEAD */
-        .top-bar { background: #0c0a09; color: #a8a29e; font-family: system-ui, sans-serif; font-size: 12px; padding: 8px 30px; display: flex; justify-content: space-between; align-items: center; }
-        .top-bar a { color: #f5f5f4; text-decoration: none; font-weight: 600; }
-        
-        header { text-align: center; border-bottom: 3px double #1c1917; padding: 25px 20px 15px 20px; max-width: 1150px; margin: 0 auto; }
-        .masthead-title { font-size: 48px; font-weight: 900; letter-spacing: -1px; margin: 0; text-transform: uppercase; font-family: 'Playfair Display', Georgia, serif; }
-        .masthead-sub { font-family: system-ui, sans-serif; font-size: 13px; color: #57534e; text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; border-top: 1px solid #d6d3d1; border-bottom: 1px solid #d6d3d1; padding: 5px 0; }
+        .container { max-width: 850px; margin: 40px auto; padding: 0 20px; }
+        .card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 35px; margin-bottom: 25px; }
+        h1, h2 { color: #0f172a; margin-top: 0; }
+        .map-box { height: 200px; background: #f1f5f9; border: 1px dashed #cbd5e1; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-weight: 600; margin-top: 15px; }
 
-        /* MAIN NEWSPAPER GRID */
-        .newspaper-container { max-width: 1150px; margin: 30px auto; padding: 0 20px; display: grid; grid-template-columns: 2.2fr 1fr 1fr; gap: 30px; }
-        
-        /* SECTION CARDS & COLUMNS */
-        .main-column { border-right: 1px solid #e7e5e4; padding-right: 25px; }
-        .middle-column { border-right: 1px solid #e7e5e4; padding-right: 25px; }
-        .side-column { padding-left: 5px; }
-
-        .article-card { margin-bottom: 30px; padding-bottom: 25px; border-bottom: 1px solid #e7e5e4; }
-        .article-card:last-child { border-bottom: none; }
-        
-        /* HEADLINE BANNER */
-        .hero-article h1 { font-size: 34px; margin: 8px 0 12px 0; line-height: 1.15; color: #0c0a09; }
-        .meta { font-family: system-ui, sans-serif; font-size: 12px; color: #78716c; margin-bottom: 12px; }
-        .excerpt { font-size: 16px; color: #44403c; margin-bottom: 15px; }
-        .read-more { font-family: system-ui, sans-serif; font-size: 13px; font-weight: bold; color: #2563eb; text-decoration: none; }
-
-        /* UNBRANDED MEDIA PLACEHOLDER */
-        .img-box { width: 100%; height: 180px; background: #f1f5f9; border: 1px dashed #cbd5e1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: system-ui, sans-serif; color: #94a3b8; font-size: 12px; font-weight: 600; margin-bottom: 12px; }
-
-        /* SUBSCRIPTION PROMO BOX */
-        .subscribe-widget { background: #0c0a09; color: #ffffff; padding: 25px; border-radius: 8px; font-family: system-ui, sans-serif; text-align: center; margin-bottom: 30px; }
-        .subscribe-widget h3 { margin-top: 0; font-size: 18px; color: #ffffff; }
-        .subscribe-widget p { font-size: 13px; color: #a8a29e; margin-bottom: 18px; }
-        .btn-subscribe { display: block; width: 100%; background: #2563eb; color: #ffffff; text-decoration: none; padding: 12px; font-weight: bold; border-radius: 6px; font-size: 14px; text-align: center; box-sizing: border-box; }
-
-        footer { border-top: 3px double #1c1917; text-align: center; padding: 25px; font-family: system-ui, sans-serif; font-size: 13px; color: #78716c; margin-top: 40px; }
-
-        @media (max-width: 900px) {
-            .newspaper-container { grid-template-columns: 1fr; }
-            .main-column, .middle-column { border-right: none; padding-right: 0; }
-        }
+        .faq-item { border-bottom: 1px solid #f1f5f9; padding-bottom: 15px; margin-bottom: 15px; }
+        .faq-item h3 { margin: 0 0 5px 0; font-size: 16px; }
+        .faq-item p { margin: 0; color: #64748b; font-size: 14px; }
     </style>
 </head>
 <body>
 
-    <!-- TOP BAR WITH SUBSCRIPTION LINK -->
-    <div class="top-bar">
-        <span>📰 Today's Edition • Sunday, October 18, 2026</span>
-        <div>
-            <a href="signup.html"> Subscribe / Join Journal</a>
-        </div>
-    </div>
-
-    <!-- NEWSPAPER MASTHEAD -->
     <header>
-        <h1 class="masthead-title">The Daily Gazette</h1>
-        <div class="masthead-sub">Independent Journalism • Daily Insights • Industry Reports</div>
+        <a href="index.html" class="event-brand">🎟️ Annual City Summit 2026</a>
+        <div class="nav-links">
+            <a href="index.html">← Back to Home</a>
+            <a href="connect.html">Connect & Register</a>
+        </div>
     </header>
 
-    <div class="newspaper-container">
-
-        <!-- ====================================================
-             [SECTION 1: MAIN HEADLINE & FEATURED STORY]
-             ==================================================== -->
-        <div class="main-column">
-            <div class="article-card hero-article">
-                <span class="section-label">[SECTION A: MAIN HEADLINE STORY]</span>
-                <div class="img-box">Image / Banner Box Placeholder</div>
-                <h1>Modern Digital Publishing Shifts Toward Clean, Fast Web Architecture</h1>
-                <div class="meta">By Editorial Team • 5 Min Read</div>
-                <p class="excerpt">An in-depth report on how minimalist layouts, fast loading static platforms, and direct newsletter subscriptions are changing the way creators publish online.</p>
-                <a href="article.html" class="read-more">Read Full Lead Story →</a>
-            </div>
-
-            <div class="article-card">
-                <span class="section-label">[SECTION B: EDITOR'S PICK / FEATURED COLUMN]</span>
-                <h2 style="font-size: 22px; margin: 6px 0;">Building Sustainable Online Businesses for Local Services</h2>
-                <div class="meta">By Guest Columnist • 4 Min Read</div>
-                <p class="excerpt">How small businesses are leveraging modular web applications and direct customer booking systems to expand their reach without excessive software fees.</p>
-                <a href="article.html" class="read-more">Read Article →</a>
-            </div>
+    <div class="container">
+        
+        <!-- [SECTION E: EVENT DETAILS & ABOUT] -->
+        <div class="card">
+            <span class="section-label">[SECTION E: EVENT OVERVIEW & ABOUT]</span>
+            <h1>About The Event</h1>
+            <p>Our annual summit brings together professionals, local business leaders, and community members. Designed to encourage networking, foster innovation, and share actionable industry insights.</p>
         </div>
 
-
-        <!-- ====================================================
-             [SECTION 2: SECONDARY STORIES & OPINION]
-             ==================================================== -->
-        <div class="middle-column">
-            <div class="article-card">
-                <span class="section-label">[SECTION C: INDUSTRY NEWS & TECH]</span>
-                <div class="img-box" style="height: 120px;">Image Box Placeholder</div>
-                <h3 style="font-size: 18px; margin: 6px 0;">Automated Payment Systems & Digital Checkout Workflows</h3>
-                <div class="meta">3 Min Read</div>
-                <p class="excerpt">A guide to linking instant purchase buttons, Stripe checkout links, and digital delivery workflows for digital product stores.</p>
-                <a href="article.html" class="read-more">Read Story →</a>
-            </div>
-
-            <div class="article-card">
-                <span class="section-label">[SECTION D: OPINION & PERSPECTIVES]</span>
-                <h3 style="font-size: 18px; margin: 6px 0;">Why Web Performance Matters More Than Heavy Animations</h3>
-                <div class="meta">Opinion • 3 Min Read</div>
-                <p class="excerpt">Speed, mobile readability, and intuitive navigation remain the highest priority for converting website visitors into loyal clients.</p>
-                <a href="article.html" class="read-more">Read Opinion →</a>
-            </div>
+        <!-- [SECTION F: VENUE & LOCATION] -->
+        <div class="card">
+            <span class="section-label">[SECTION F: VENUE & PARKING]</span>
+            <h2>Venue & Location Details</h2>
+            <p><strong>Location:</strong> Downtown Convention Center • 500 Grand Avenue</p>
+            <p><strong>Parking:</strong> On-site multi-level parking garage available with complimentary validation for event attendees.</p>
+            <div class="map-box">Interactive Map & Direction Box Placeholder</div>
         </div>
 
+        <!-- [SECTION G: FAQ] -->
+        <div class="card">
+            <span class="section-label">[SECTION G: FREQUENTLY ASKED QUESTIONS]</span>
+            <h2>Attendee FAQ</h2>
 
-        <!-- ====================================================
-             [SECTION 3: SUBSCRIPTION CTA & QUICK TRENDS]
-             ==================================================== -->
-        <div class="side-column">
-            
-            <!-- [SECTION E: SUBSCRIPTION WIDGET] -->
-            <div class="subscribe-widget">
-                <span class="section-label" style="background:#334155; color:#cbd5e1;">[SECTION E: SUBSCRIPTION BOX]</span>
-                <h3>📬 Subscribe to The Gazette</h3>
-                <p>Get full digital access, daily email digests, and downloadable resources sent directly to your inbox.</p>
-                <a href="signup.html" class="btn-subscribe">Get Full Access / Subscribe →</a>
+            <div class="faq-item">
+                <h3>🎟️ Are tickets required for entry?</h3>
+                <p>Yes, all guests must register online or check in at the front welcome desk upon arrival.</p>
             </div>
 
-            <!-- [SECTION F: TRENDING BULLETINS] -->
-            <div class="article-card">
-                <span class="section-label">[SECTION F: BRIEF BULLETINS]</span>
-                <h4 style="font-size: 15px; margin: 8px 0 4px 0;">• Weekly Market Briefing Published</h4>
-                <p style="font-size: 13px; color: #57534e; margin-bottom: 12px;">Reviewing key operational metrics for standard web builds.</p>
-
-                <h4 style="font-size: 15px; margin: 8px 0 4px 0;">• New Client Template Suites Released</h4>
-                <p style="font-size: 13px; color: #57534e;">Modular single and multi-page layouts for business portfolios.</p>
+            <div class="faq-item">
+                <h3>🍽️ Will food and beverages be provided?</h3>
+                <p>Complimentary coffee, morning refreshments, and catered networking lunches are included with registration passes.</p>
             </div>
-
         </div>
 
     </div>
-
-    <footer>
-        <p>© 2026 The Daily Gazette. All layout sections labeled for custom client editing.</p>
-    </footer>
 
 </body>
 </html>
