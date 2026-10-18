@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - The Chronicle Journal</title>
+    <title>Subscribe - The Daily Gazette</title>
     <style>
-        body { font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 0; color: #1c1917; background-color: #fafaf9; line-height: 1.6; }
-        header { background: #ffffff; border-bottom: 1px solid #e7e5e4; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }
-        .journal-title { font-size: 24px; font-weight: bold; color: #0c0a09; text-decoration: none; }
-        .nav-links a { text-decoration: none; color: #57534e; font-size: 14px; font-weight: 600; margin-left: 15px; }
+        body { font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 0; color: #1c1917; background-color: #fcfbf9; line-height: 1.6; }
+        header { background: #ffffff; border-bottom: 1px solid #e7e5e4; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+        .brand { font-size: 20px; font-weight: bold; color: #0c0a09; text-decoration: none; }
+        .nav-links a { color: #57534e; text-decoration: none; font-size: 14px; font-weight: 600; }
 
-        .container { max-width: 600px; margin: 50px auto; padding: 0 20px; }
+        .container { max-width: 650px; margin: 50px auto; padding: 0 20px; }
         .card { background: #ffffff; border: 1px solid #e7e5e4; border-radius: 12px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03); }
-        .card h1 { font-size: 28px; color: #0c0a09; margin-top: 0; margin-bottom: 10px; }
+        .section-badge { display: inline-block; background: #e2e8f0; color: #334155; font-size: 11px; font-weight: bold; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; margin-bottom: 15px; }
 
-        .form-group { margin-bottom: 20px; text-align: left; }
+        h1 { font-size: 28px; color: #0c0a09; margin-top: 0; margin-bottom: 8px; }
+        p { color: #78716c; font-size: 15px; margin-bottom: 25px; }
+
+        .form-group { margin-bottom: 20px; }
         .form-group label { display: block; font-weight: 600; font-size: 13px; margin-bottom: 6px; color: #44403c; }
         .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #d6d3d1; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
 
@@ -25,38 +28,39 @@
 <body>
 
     <header>
-        <a href="index.html" class="journal-title">✒️ The Chronicle Journal</a>
+        <a href="index.html" class="brand">📰 The Daily Gazette</a>
         <div class="nav-links">
-            <a href="index.html">← Return to Articles</a>
+            <a href="index.html">← Back to Front Page</a>
         </div>
     </header>
 
     <div class="container">
         <div class="card">
-            <h1>Join The Chronicle Journal</h1>
-            <p style="color: #78716c; margin-bottom: 25px;">Select your subscription preference to receive essays, updates, and resources.</p>
+            <span class="section-badge">[PAGE: SUBSCRIPTION FORM]</span>
+            <h1>Subscribe to The Daily Gazette</h1>
+            <p>Choose your membership tier to receive unrestricted digital articles, newsletter updates, and special editorial dispatches.</p>
 
-            <form onsubmit="event.preventDefault(); alert('Registration successful! Welcome to the journal.');">
+            <form onsubmit="event.preventDefault(); alert('Subscription registered successfully!');">
                 <div class="form-group">
                     <label>Full Name</label>
-                    <input type="text" placeholder="Sarah Johnson" required>
+                    <input type="text" placeholder="John Smith" required>
                 </div>
 
                 <div class="form-group">
                     <label>Email Address</label>
-                    <input type="email" placeholder="sarah@example.com" required>
+                    <input type="email" placeholder="john@example.com" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Subscription Tier</label>
+                    <label>Select Subscription Tier</label>
                     <select>
-                        <option>Free Reader (Weekly Sunday Newsletter)</option>
-                        <option>Daily Digest (All Articles Direct to Email)</option>
-                        <option>VIP Supporter (Articles + Downloads & Assets)</option>
+                        <option>Free Reader (Weekly Newsletter Digest)</option>
+                        <option>Digital Pass (Unlimited Daily Online Access)</option>
+                        <option>VIP Supporter (Daily Pass + Digital Resource Downloads)</option>
                     </select>
                 </div>
 
-                <button type="submit" class="btn-submit">Complete Free Sign Up →</button>
+                <button type="submit" class="btn-submit">Complete Subscription Sign Up →</button>
             </form>
         </div>
     </div>
