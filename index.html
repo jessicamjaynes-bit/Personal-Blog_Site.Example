@@ -3,129 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Chronicle Journal - Daily Essays & Insights</title>
+    <title>The Daily Gazette - Newspaper & Journal</title>
     <style>
-        body { font-family: Georgia, cambria, serif; margin: 0; padding: 0; color: #1c1917; background-color: #fafaf9; line-height: 1.7; }
+        * { box-sizing: border-box; }
+        body { font-family: Georgia, 'Times New Roman', serif; margin: 0; padding: 0; color: #1c1917; background-color: #fcfbf9; line-height: 1.6; }
+
+        /* CLIENT HELPER BADGE FOR EASY CUSTOMIZATION */
+        .section-label { display: inline-block; background: #e2e8f0; color: #334155; font-family: system-ui, sans-serif; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+
+        /* HEADER & NEWSPAPER MASTHEAD */
+        .top-bar { background: #0c0a09; color: #a8a29e; font-family: system-ui, sans-serif; font-size: 12px; padding: 8px 30px; display: flex; justify-content: space-between; align-items: center; }
+        .top-bar a { color: #f5f5f4; text-decoration: none; font-weight: 600; }
         
-        /* Navigation Header */
-        header { background: #ffffff; border-bottom: 1px solid #e7e5e4; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-        .journal-title { font-size: 24px; font-weight: bold; letter-spacing: -0.5px; color: #0c0a09; text-decoration: none; font-family: system-ui, sans-serif; }
-        .nav-links { display: flex; gap: 20px; align-items: center; font-family: system-ui, sans-serif; font-size: 14px; }
-        .nav-links a { text-decoration: none; color: #57534e; font-weight: 600; }
-        .btn-subscribe-nav { background: #0c0a09; color: #ffffff !important; padding: 8px 16px; border-radius: 6px; transition: background 0.2s; }
-        .btn-subscribe-nav:hover { background: #292524; }
+        header { text-align: center; border-bottom: 3px double #1c1917; padding: 25px 20px 15px 20px; max-width: 1150px; margin: 0 auto; }
+        .masthead-title { font-size: 48px; font-weight: 900; letter-spacing: -1px; margin: 0; text-transform: uppercase; font-family: 'Playfair Display', Georgia, serif; }
+        .masthead-sub { font-family: system-ui, sans-serif; font-size: 13px; color: #57534e; text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; border-top: 1px solid #d6d3d1; border-bottom: 1px solid #d6d3d1; padding: 5px 0; }
 
-        /* Main Grid Layout */
-        .layout-container { max-width: 1100px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 2.5fr 1fr; gap: 40px; }
+        /* MAIN NEWSPAPER GRID */
+        .newspaper-container { max-width: 1150px; margin: 30px auto; padding: 0 20px; display: grid; grid-template-columns: 2.2fr 1fr 1fr; gap: 30px; }
         
-        /* Featured Article Banner */
-        .featured-card { background: #ffffff; border: 1px solid #e7e5e4; border-radius: 12px; padding: 35px; margin-bottom: 35px; }
-        .tag { font-family: system-ui, sans-serif; font-size: 12px; font-weight: bold; color: #2563eb; text-transform: uppercase; letter-spacing: 0.5px; }
-        .featured-card h1 { font-size: 32px; color: #0c0a09; margin: 10px 0; line-height: 1.25; }
-        .meta { font-family: system-ui, sans-serif; font-size: 13px; color: #78716c; margin-bottom: 15px; }
-        .excerpt { color: #44403c; font-size: 17px; margin-bottom: 20px; }
-        .read-link { font-family: system-ui, sans-serif; font-weight: bold; color: #0c0a09; text-decoration: none; font-size: 14px; }
+        /* SECTION CARDS & COLUMNS */
+        .main-column { border-right: 1px solid #e7e5e4; padding-right: 25px; }
+        .middle-column { border-right: 1px solid #e7e5e4; padding-right: 25px; }
+        .side-column { padding-left: 5px; }
 
-        /* Articles Feed Grid */
-        .feed-title { font-family: system-ui, sans-serif; font-size: 20px; color: #0c0a09; border-bottom: 2px solid #0c0a09; padding-bottom: 8px; margin-bottom: 25px; }
-        .post-card { background: #ffffff; border: 1px solid #e7e5e4; border-radius: 8px; padding: 25px; margin-bottom: 20px; transition: border-color 0.2s; }
-        .post-card:hover { border-color: #a8a29e; }
-        .post-card h2 { font-size: 22px; color: #0c0a09; margin: 8px 0; }
-        .post-card p { color: #57534e; font-size: 15px; margin-bottom: 15px; }
+        .article-card { margin-bottom: 30px; padding-bottom: 25px; border-bottom: 1px solid #e7e5e4; }
+        .article-card:last-child { border-bottom: none; }
+        
+        /* HEADLINE BANNER */
+        .hero-article h1 { font-size: 34px; margin: 8px 0 12px 0; line-height: 1.15; color: #0c0a09; }
+        .meta { font-family: system-ui, sans-serif; font-size: 12px; color: #78716c; margin-bottom: 12px; }
+        .excerpt { font-size: 16px; color: #44403c; margin-bottom: 15px; }
+        .read-more { font-family: system-ui, sans-serif; font-size: 13px; font-weight: bold; color: #2563eb; text-decoration: none; }
 
-        /* Sidebar Widgets */
-        aside { font-family: system-ui, sans-serif; }
-        .sidebar-widget { background: #ffffff; border: 1px solid #e7e5e4; border-radius: 10px; padding: 25px; margin-bottom: 25px; }
-        .sidebar-widget h3 { font-size: 16px; color: #0c0a09; margin-top: 0; border-bottom: 1px solid #f5f5f4; padding-bottom: 10px; }
-        .category-list { list-style: none; padding: 0; margin: 0; }
-        .category-list li { margin-bottom: 10px; }
-        .category-list a { text-decoration: none; color: #57534e; font-size: 14px; font-weight: 500; display: flex; justify-content: space-between; }
+        /* UNBRANDED MEDIA PLACEHOLDER */
+        .img-box { width: 100%; height: 180px; background: #f1f5f9; border: 1px dashed #cbd5e1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: system-ui, sans-serif; color: #94a3b8; font-size: 12px; font-weight: 600; margin-bottom: 12px; }
 
-        /* Newsletter CTA Card */
-        .newsletter-card { background: #0c0a09; color: #ffffff; padding: 25px; border-radius: 10px; text-align: center; }
-        .newsletter-card h3 { color: #ffffff; margin-top: 0; }
-        .newsletter-card p { font-size: 13px; color: #a8a29e; margin-bottom: 18px; }
-        .btn-cta { display: block; width: 100%; background: #2563eb; color: #ffffff; text-decoration: none; padding: 12px 0; font-weight: bold; border-radius: 6px; font-size: 14px; box-sizing: border-box; text-align: center; }
+        /* SUBSCRIPTION PROMO BOX */
+        .subscribe-widget { background: #0c0a09; color: #ffffff; padding: 25px; border-radius: 8px; font-family: system-ui, sans-serif; text-align: center; margin-bottom: 30px; }
+        .subscribe-widget h3 { margin-top: 0; font-size: 18px; color: #ffffff; }
+        .subscribe-widget p { font-size: 13px; color: #a8a29e; margin-bottom: 18px; }
+        .btn-subscribe { display: block; width: 100%; background: #2563eb; color: #ffffff; text-decoration: none; padding: 12px; font-weight: bold; border-radius: 6px; font-size: 14px; text-align: center; box-sizing: border-box; }
 
-        footer { background: #ffffff; border-top: 1px solid #e7e5e4; padding: 30px 20px; text-align: center; font-family: system-ui, sans-serif; font-size: 13px; color: #78716c; margin-top: 60px; }
+        footer { border-top: 3px double #1c1917; text-align: center; padding: 25px; font-family: system-ui, sans-serif; font-size: 13px; color: #78716c; margin-top: 40px; }
 
-        @media (max-width: 800px) {
-            .layout-container { grid-template-columns: 1fr; }
-            header { padding: 15px 20px; }
+        @media (max-width: 900px) {
+            .newspaper-container { grid-template-columns: 1fr; }
+            .main-column, .middle-column { border-right: none; padding-right: 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVIGATION HEADER -->
-    <header>
-        <a href="index.html" class="journal-title">✒️ The Chronicle Journal</a>
-        <div class="nav-links">
-            <a href="index.html">Latest Essays</a>
-            <a href="article.html">Featured Post</a>
-            <a href="signup.html" class="btn-subscribe-nav">Sign Up Free</a>
+    <!-- TOP BAR WITH SUBSCRIPTION LINK -->
+    <div class="top-bar">
+        <span>📰 Today's Edition • Sunday, October 18, 2026</span>
+        <div>
+            <a href="signup.html"> Subscribe / Join Journal</a>
         </div>
+    </div>
+
+    <!-- NEWSPAPER MASTHEAD -->
+    <header>
+        <h1 class="masthead-title">The Daily Gazette</h1>
+        <div class="masthead-sub">Independent Journalism • Daily Insights • Industry Reports</div>
     </header>
 
-    <div class="layout-container">
-        
-        <!-- MAIN ARTICLES FEED -->
-        <main>
-            <!-- FEATURED HERO POST -->
-            <div class="featured-card">
-                <span class="tag">Featured Essay</span>
-                <h1>Building Sustainable Digital Products in the Modern Web Era</h1>
-                <div class="meta">Published Oct 18, 2026 • By Jessica Jaynes • 6 min read</div>
-                <p class="excerpt">An exploration of minimal code architecture, performance optimization, and creating timeless user experiences for small businesses and online ventures.</p>
-                <a href="article.html" class="read-link">Read Full Article →</a>
+    <div class="newspaper-container">
+
+        <!-- ====================================================
+             [SECTION 1: MAIN HEADLINE & FEATURED STORY]
+             ==================================================== -->
+        <div class="main-column">
+            <div class="article-card hero-article">
+                <span class="section-label">[SECTION A: MAIN HEADLINE STORY]</span>
+                <div class="img-box">Image / Banner Box Placeholder</div>
+                <h1>Modern Digital Publishing Shifts Toward Clean, Fast Web Architecture</h1>
+                <div class="meta">By Editorial Team • 5 Min Read</div>
+                <p class="excerpt">An in-depth report on how minimalist layouts, fast loading static platforms, and direct newsletter subscriptions are changing the way creators publish online.</p>
+                <a href="article.html" class="read-more">Read Full Lead Story →</a>
             </div>
 
-            <h2 class="feed-title">Recent Published Writings</h2>
+            <div class="article-card">
+                <span class="section-label">[SECTION B: EDITOR'S PICK / FEATURED COLUMN]</span>
+                <h2 style="font-size: 22px; margin: 6px 0;">Building Sustainable Online Businesses for Local Services</h2>
+                <div class="meta">By Guest Columnist • 4 Min Read</div>
+                <p class="excerpt">How small businesses are leveraging modular web applications and direct customer booking systems to expand their reach without excessive software fees.</p>
+                <a href="article.html" class="read-more">Read Article →</a>
+            </div>
+        </div>
 
-            <!-- POST CARD 1 -->
-            <div class="post-card">
-                <span class="tag">Web Architecture</span>
-                <h2>Modular Web Components for Modern Client Delivery</h2>
-                <div class="meta">Oct 12, 2026 • 4 min read</div>
-                <p>How single and multi-page static templates accelerate client handoffs and lower deployment overhead for freelance developers.</p>
-                <a href="article.html" class="read-link">Read Story →</a>
+
+        <!-- ====================================================
+             [SECTION 2: SECONDARY STORIES & OPINION]
+             ==================================================== -->
+        <div class="middle-column">
+            <div class="article-card">
+                <span class="section-label">[SECTION C: INDUSTRY NEWS & TECH]</span>
+                <div class="img-box" style="height: 120px;">Image Box Placeholder</div>
+                <h3 style="font-size: 18px; margin: 6px 0;">Automated Payment Systems & Digital Checkout Workflows</h3>
+                <div class="meta">3 Min Read</div>
+                <p class="excerpt">A guide to linking instant purchase buttons, Stripe checkout links, and digital delivery workflows for digital product stores.</p>
+                <a href="article.html" class="read-more">Read Story →</a>
             </div>
 
-            <!-- POST CARD 2 -->
-            <div class="post-card">
-                <span class="tag">Business & Operations</span>
-                <h2>Streamlining Automated Checkout Workflows</h2>
-                <div class="meta">Oct 05, 2026 • 5 min read</div>
-                <p>Integrating clear call-to-action buttons, instant digital product links, and Stripe session links for small business growth.</p>
-                <a href="article.html" class="read-link">Read Story →</a>
+            <div class="article-card">
+                <span class="section-label">[SECTION D: OPINION & PERSPECTIVES]</span>
+                <h3 style="font-size: 18px; margin: 6px 0;">Why Web Performance Matters More Than Heavy Animations</h3>
+                <div class="meta">Opinion • 3 Min Read</div>
+                <p class="excerpt">Speed, mobile readability, and intuitive navigation remain the highest priority for converting website visitors into loyal clients.</p>
+                <a href="article.html" class="read-more">Read Opinion →</a>
             </div>
-        </main>
+        </div>
 
-        <!-- SIDEBAR -->
-        <aside>
-            <!-- NEWSLETTER SIGN UP WIDGET -->
-            <div class="newsletter-card">
-                <h3>📬 Weekly Dispatch</h3>
-                <p>Get our latest articles, digital tools, and design insights delivered directly to your inbox every Sunday.</p>
-                <a href="signup.html" class="btn-cta">Sign Up For Free →</a>
+
+        <!-- ====================================================
+             [SECTION 3: SUBSCRIPTION CTA & QUICK TRENDS]
+             ==================================================== -->
+        <div class="side-column">
+            
+            <!-- [SECTION E: SUBSCRIPTION WIDGET] -->
+            <div class="subscribe-widget">
+                <span class="section-label" style="background:#334155; color:#cbd5e1;">[SECTION E: SUBSCRIPTION BOX]</span>
+                <h3>📬 Subscribe to The Gazette</h3>
+                <p>Get full digital access, daily email digests, and downloadable resources sent directly to your inbox.</p>
+                <a href="signup.html" class="btn-subscribe">Get Full Access / Subscribe →</a>
             </div>
 
-            <!-- CATEGORIES WIDGET -->
-            <div class="sidebar-widget">
-                <h3>Topics & Categories</h3>
-                <ul class="category-list">
-                    <li><a href="#"><span>Web Development</span> <span>(12)</span></a></li>
-                    <li><a href="#"><span>Digital Business</span> <span>(8)</span></a></li>
-                    <li><a href="#"><span>UI/UX Design</span> <span>(15)</span></a></li>
-                    <li><a href="#"><span>Case Studies</span> <span>(5)</span></a></li>
-                </ul>
+            <!-- [SECTION F: TRENDING BULLETINS] -->
+            <div class="article-card">
+                <span class="section-label">[SECTION F: BRIEF BULLETINS]</span>
+                <h4 style="font-size: 15px; margin: 8px 0 4px 0;">• Weekly Market Briefing Published</h4>
+                <p style="font-size: 13px; color: #57534e; margin-bottom: 12px;">Reviewing key operational metrics for standard web builds.</p>
+
+                <h4 style="font-size: 15px; margin: 8px 0 4px 0;">• New Client Template Suites Released</h4>
+                <p style="font-size: 13px; color: #57534e;">Modular single and multi-page layouts for business portfolios.</p>
             </div>
-        </aside>
+
+        </div>
 
     </div>
 
     <footer>
-        <p>© 2026 The Chronicle Journal. All rights reserved.</p>
+        <p>© 2026 The Daily Gazette. All layout sections labeled for custom client editing.</p>
     </footer>
 
 </body>
