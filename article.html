@@ -3,59 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article View - The Daily Gazette</title>
+    <title>Article View - The Personal Gazette</title>
     <style>
+        * { box-sizing: border-box; }
         body { font-family: Georgia, serif; margin: 0; padding: 0; color: #1c1917; background-color: #fcfbf9; line-height: 1.8; }
         header { background: #ffffff; border-bottom: 1px solid #e7e5e4; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; font-family: system-ui, sans-serif; }
         .brand { font-size: 20px; font-weight: bold; color: #0c0a09; text-decoration: none; }
         .nav-links a { color: #57534e; text-decoration: none; font-size: 14px; font-weight: 600; margin-left: 15px; }
 
-        .section-badge { display: inline-block; background: #e2e8f0; color: #334155; font-family: system-ui, sans-serif; font-size: 11px; font-weight: bold; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
+        .section-label { display: inline-block; background: #e2e8f0; color: #334155; font-family: system-ui, sans-serif; font-size: 11px; font-weight: bold; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; margin-bottom: 10px; }
 
-        .article-body { max-width: 700px; margin: 40px auto; padding: 0 20px; }
+        .article-body { max-width: 720px; margin: 40px auto; padding: 0 20px; }
         h1 { font-size: 36px; color: #0c0a09; line-height: 1.2; margin: 10px 0 15px 0; }
-        .meta { font-family: system-ui, sans-serif; font-size: 13px; color: #78716c; border-bottom: 1px solid #e7e5e4; padding-bottom: 15px; margin-bottom: 25px; }
+        .meta { font-family: system-ui, sans-serif; font-size: 13px; color: #78716c; border-bottom: 1px solid #e7e5e4; padding-bottom: 15px; margin-bottom: 20px; }
+
+        /* ARTICLE BUTTON TOOLBAR */
+        .article-toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 25px; font-family: system-ui, sans-serif; }
+        .btn-tool { background: #f1f5f9; border: 1px solid #cbd5e1; color: #334155; padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; }
+        .btn-tool:hover { background: #e2e8f0; }
 
         .img-placeholder { width: 100%; height: 220px; background: #f1f5f9; border: 1px dashed #cbd5e1; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: system-ui, sans-serif; color: #94a3b8; font-weight: 600; margin-bottom: 25px; }
 
         p { font-size: 18px; color: #292524; margin-bottom: 25px; }
         blockquote { border-left: 3px solid #0c0a09; margin: 30px 0; padding-left: 20px; font-style: italic; color: #44403c; font-size: 20px; }
 
-        /* AUTHOR & SUBSCRIBE BOX */
-        .article-cta { background: #ffffff; border: 1px solid #e7e5e4; border-radius: 10px; padding: 25px; margin-top: 40px; font-family: system-ui, sans-serif; text-align: center; }
-        .btn-sub { display: inline-block; background: #2563eb; color: white; text-decoration: none; padding: 12px 24px; font-weight: bold; border-radius: 6px; font-size: 14px; margin-top: 15px; }
+        /* FOOTER ACTIONS & DONATE BOX */
+        .article-cta { background: #ffffff; border: 1px solid #e7e5e4; border-radius: 10px; padding: 30px; margin-top: 40px; font-family: system-ui, sans-serif; text-align: center; }
+        .btn-cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+        .btn-main { background: #0c0a09; color: white; text-decoration: none; padding: 12px 20px; font-weight: bold; border-radius: 6px; font-size: 14px; }
+        .btn-tip { background: #d97706; color: white; text-decoration: none; padding: 12px 20px; font-weight: bold; border-radius: 6px; font-size: 14px; }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="brand">📰 The Daily Gazette</a>
+        <a href="index.html" class="brand">📰 The Personal Gazette</a>
         <div class="nav-links">
-            <a href="index.html">← Back to Front Page</a>
+            <a href="index.html">← Back to Feed</a>
             <a href="signup.html">Subscribe</a>
         </div>
     </header>
 
     <div class="article-body">
-        <span class="section-badge">[ARTICLE SECTION: MAIN LEAD]</span>
-        <h1>Modern Digital Publishing Shifts Toward Clean, Fast Web Architecture</h1>
-        <div class="meta">Published Sunday, Oct 18, 2026 • By Editorial Team • 5 Min Read</div>
+        <span class="section-label">[SECTION G: ARTICLE HEADER & METADATA]</span>
+        <h1>Building Modular Websites for Local Businesses & Clients</h1>
+        <div class="meta">Published Sunday, Oct 18, 2026 • By Author • 5 Min Read</div>
+
+        <!-- ACTION TOOLBAR -->
+        <div class="article-toolbar">
+            <button class="btn-tool" onclick="alert('Playing audio narration...')">🎧 Listen to Essay (4:20)</button>
+            <button class="btn-tool" onclick="navigator.clipboard.writeText(window.location.href); alert('Article link copied!');">📤 Copy Link</button>
+            <button class="btn-tool" onclick="alert('Saved to reading list!')">🔖 Save for Later</button>
+            <a href="#comments" class="btn-tool">💬 Jump to Comments</a>
+        </div>
 
         <div class="img-placeholder">[ARTICLE FEATURED PHOTO PLACEHOLDER]</div>
 
-        <p>In an era where web platforms often become bloated with heavy plugins and slow loading scripts, direct newspaper and journal layouts are returning to fundamental speed and clear typography.</p>
+        <p>In an era where web platforms often become bloated with heavy plugins and slow loading scripts, direct blog and journal layouts are returning to fundamental speed and clear typography.</p>
 
-        <p>By organizing content into well-defined sections—such as Main Headlines, Industry Briefings, and Editorial Columns—readers can easily digest information on any device.</p>
+        <p>By organizing content into well-defined sections—such as Featured Posts, Newsletter Cards, and Tip Jars—readers can easily digest information and support independent creators.</p>
 
         <blockquote>"Clarity in presentation allows quality content to stand out without distraction."</blockquote>
 
-        <p>Whether hosting a regional newspaper, an industry journal, or a personal blog, clean multi-page setups offer simple maintenance and direct audience engagement.</p>
+        <p>Whether hosting a personal blog, a technical journal, or a client service site, clean multi-page setups offer simple maintenance and direct audience engagement.</p>
 
+        <!-- FOOTER SUPPORT CTA -->
         <div class="article-cta">
-            <span class="section-badge">[ARTICLE END CTA]</span>
-            <h3>Enjoyed this edition?</h3>
-            <p style="font-size: 14px; color: #57534e; margin-bottom: 0;">Subscribe today to receive complete morning updates and special reports directly to your inbox.</p>
-            <a href="signup.html" class="btn-sub">Join Subscription Plan →</a>
+            <span class="section-label">[SECTION H: ARTICLE END ACTION BLOCK]</span>
+            <h3>Enjoyed this piece?</h3>
+            <p style="font-size: 14px; color: #57534e; margin-bottom: 0;">Subscribe to get the next Sunday dispatch or throw a coffee in the tip jar to support independent writing.</p>
+            
+            <div class="btn-cta-row">
+                <a href="signup.html" class="btn-main">📬 Subscribe to Newsletter</a>
+                <a href="#" onclick="alert('Opening Buy Me a Coffee link...')" class="btn-tip">☕ Buy Me a Coffee</a>
+            </div>
+        </div>
+
+        <!-- COMMENT SECTION PLACEHOLDER -->
+        <div id="comments" style="margin-top: 50px; font-family: system-ui, sans-serif; border-top: 1px solid #e7e5e4; padding-top: 30px;">
+            <span class="section-label">[SECTION I: READER COMMENTS]</span>
+            <h3>Discussion & Comments</h3>
+            <button class="btn-tool" style="width: 100%; padding: 12px; margin-top: 10px;" onclick="alert('Opening comment box...')">💬 Leave a Comment or Reply</button>
         </div>
     </div>
 
